@@ -11,6 +11,10 @@ function App() {
     settext(newtext)
   }
 
+ const  handleLoClick = () => {
+  settext(text.toLowerCase());
+ }
+
   const handleOnChange = (event) => {
     
     settext(event.target.value);
@@ -20,16 +24,17 @@ function App() {
   return (
     <>
       <div>
-        <h1 className='text-center text-3xl font-semibold'>
-          Case Converter <br /> Your Online Tool for Lower, Upper, Title, Capital, and
-          Sentence <br /> Case Conversion
+        <h1 className="text-center text-3xl font-semibold">
+          Case Converter <br /> Your Online Tool for Lower, Upper, Title,
+          Capital, and Sentence <br /> Case Conversion
         </h1>
         <div className="min-h-screen flex flex-col items-center p-4 bg-gray-100">
           <div className="w-full max-w-3xl bg-white rounded-xl shadow-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Input Side */}
             <textarea
               className="border rounded p-3 h-48 resize-none"
-              value={text} onChange={handleOnChange}
+              value={text}
+              onChange={handleOnChange}
             />
             {/* Output Side */}
             <div className="relative">
@@ -45,15 +50,20 @@ function App() {
 
           {/* Style Buttons */}
           <div className="flex flex-wrap gap-2 mt-4">
-            {["UPPERCASE", "lowercase", "Title Case", "camelCase"].map((s) => (
-              <button
-                key={s}
-                className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded"
-                onClick={handleUpClick}
-              >
-                {`${s}`}
-              </button>
-            ))}
+            <button
+              className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded"
+              onClick={handleUpClick}
+            >
+              UPPERCASE
+            </button>
+
+            <button
+             
+              className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded"
+              onClick={handleLoClick}
+            >
+              Lowercase
+            </button>
           </div>
         </div>
       </div>
